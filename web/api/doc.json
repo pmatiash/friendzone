@@ -1,0 +1,212 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/api/friend/{id}": {
+            "post": {
+                "tags": [
+                    "Friend Request"
+                ],
+                "summary": "Add friend to the current user",
+                "description": "",
+                "operationId": "findPetsByTags",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Current userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "receiverId",
+                        "in": "formData",
+                        "description": "Friend Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Friend Request"
+                ],
+                "summary": "Change status for the friend request: approve or cancel friend request",
+                "description": "",
+                "operationId": "findPetsByTags",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Current userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "friendId",
+                        "in": "formData",
+                        "description": "Friend Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "status",
+                        "in": "formData",
+                        "description": "Request Status",
+                        "required": true,
+                        "type": "integer",
+                        "default": 1,
+                        "enum": [
+                            1,
+                            2
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/friends/{id}": {
+            "get": {
+                "tags": [
+                    "Friend Request"
+                ],
+                "summary": "Show all friend requests for the current user",
+                "description": "",
+                "operationId": "findPetsByTags",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Current userId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/friends/{id}/{status}": {
+            "get": {
+                "tags": [
+                    "Friend Request"
+                ],
+                "summary": "Show all friend requests filtered by special status",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Current userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "description": "Request status",
+                        "required": true,
+                        "type": "integer",
+                        "default": 1,
+                        "enum": [
+                            1
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/friends/{id}/friends/{level}": {
+            "get": {
+                "tags": [
+                    "Friend Request"
+                ],
+                "summary": "Show all friends of friends to according recursively level",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Current userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "level",
+                        "in": "path",
+                        "description": "Request status",
+                        "required": true,
+                        "type": "integer",
+                        "default": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

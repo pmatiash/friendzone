@@ -1,0 +1,17 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: false
+    memory_limit: 1024M
+modules:
+    config:
+        MongoDb:
+            dsn: 'mongodb://127.0.0.1:27017/friendzone'
+            cleanup: false
+            populate: false
+            dump: ~
