@@ -6,8 +6,9 @@ simple rest api application
 * MongoDb
 * Codeception
 * Swagger
-* 
+
 Live Demo: http://52.19.110.51/
+
 Users List: http://52.19.110.51/site/users
 
 
